@@ -36,7 +36,7 @@ public class TradesController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> findTrade(@PathParam("id") Long id) {
+    public ResponseEntity<?> findTrade(@PathVariable("id") Long id) {
 
 
         TradeRequest response = commonService.findTrade(id);
@@ -60,7 +60,7 @@ public class TradesController {
     }
 
     @RequestMapping(value = "/users/{userID}", method = RequestMethod.GET)
-    public ResponseEntity<?> findAllTradeByUserId(@PathParam("userId") Long userID) {
+    public ResponseEntity<?> findAllTradeByUserId(@PathVariable("userId") Long userID) {
 
 
         List<TradeRequest> response = commonService.findByUserId(userID);
@@ -72,7 +72,7 @@ public class TradesController {
     }
 
     @RequestMapping(value = "/stocks/{stockSymbol}", method = RequestMethod.GET)
-    public ResponseEntity<?> findFilteredTrades(@PathParam("stockSymbol") String stockSymbol,
+    public ResponseEntity<?> findFilteredTrades(@PathVariable("stockSymbol") String stockSymbol,
                                                 @RequestParam(value = "tradeType", required = true) String tradeType,
                                                 @RequestParam(value = "start", required = true) String startDate,
                                                 @RequestParam(value = "end", required = true) String endDate) {

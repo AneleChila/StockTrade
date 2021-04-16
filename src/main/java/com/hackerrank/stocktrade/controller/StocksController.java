@@ -24,7 +24,7 @@ public class StocksController {
 
 
     @RequestMapping(value = "/{stockSymbol}/price", method = RequestMethod.GET)
-    public ResponseEntity<?> findFilteredTrades(@PathParam("stockSymbol") String stockSymbol,
+    public ResponseEntity<?> findFilteredTrades(@PathVariable("stockSymbol") String stockSymbol,
                                                 @RequestParam(value = "start", required = true) String startDate,
                                                 @RequestParam(value = "end", required = true) String endDate) {
 
