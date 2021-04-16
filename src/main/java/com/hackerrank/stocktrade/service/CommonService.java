@@ -42,6 +42,8 @@ public class CommonService {
 
         Trade trade = new Trade(request);
 
+        userRepository.save(request.getUser());
+
         tradeRepository.save(trade);
 
         return true;
@@ -73,16 +75,15 @@ public class CommonService {
         List<TradeRequest> response = new ArrayList<>();
         List<Trade> trades = tradeRepository.findAllByOrderAsc();
 
-        trades.forEach( trade -> {
 
+        for(Trade trade : trades) {
             User user = userRepository.findById(trade.getUserId()).get();
 
             TradeRequest tradeRequest = new TradeRequest(trade);
             tradeRequest.setUser(user);
 
             response.add(tradeRequest);
-
-        });
+        }
 
         return response;
     }
