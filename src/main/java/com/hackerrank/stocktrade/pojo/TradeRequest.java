@@ -8,13 +8,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TradeRequest {
+public class TradeRequest implements Serializable {
 
     private Long id;
     private String type;
@@ -22,7 +23,7 @@ public class TradeRequest {
     private String symbol;
     private Integer shares;
     private Float price;
-    private Timestamp timestamp;
+    private String timestamp;
 
     public TradeRequest(Trade trade) {
         this.id = trade.getId();
@@ -30,6 +31,6 @@ public class TradeRequest {
         this.symbol = trade.getSymbol();
         this.shares = trade.getShares();
         this.price = trade.getPrice();
-        this.timestamp = trade.getTimestamp();
+        this.timestamp = trade.getTimestamp().toString();
     }
 }

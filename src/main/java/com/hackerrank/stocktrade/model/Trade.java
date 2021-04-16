@@ -35,7 +35,7 @@ public class Trade {
         this.symbol = request.getSymbol();
         this.shares = request.getShares();
         this.price = request.getPrice();
-        this.timestamp = request.getTimestamp();
+        this.timestamp = Timestamp.valueOf(request.getTimestamp());
     }
 
     public Trade(Long id, String type, User user, String symbol, Integer quantity, Float price, Timestamp timestamp) {
