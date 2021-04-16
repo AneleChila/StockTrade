@@ -79,7 +79,7 @@ public class TradesController {
 
 
         List<TradeRequest> response = commonService.findFilteredTrades(
-                stockSymbol, tradeType, Timestamp.valueOf(startDate), Timestamp.valueOf(endDate));
+                stockSymbol, tradeType, Timestamp.valueOf(startDate + " 00:00:00.000"), Timestamp.valueOf(endDate + " 00:00:00.000"));
 
         if(response.isEmpty())
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);

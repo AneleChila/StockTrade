@@ -30,7 +30,7 @@ public class StocksController {
 
 
         GetHighestLowestPriceResponse response = commonService.findFilteredTrades(
-                stockSymbol, Timestamp.valueOf(startDate), Timestamp.valueOf(endDate));
+                stockSymbol, Timestamp.valueOf(startDate + " 00:00:00.000"), Timestamp.valueOf(endDate + " 00:00:00.000"));
 
         if(response == null)
             return new ResponseEntity<>(new GetHighestLowestPriceErrorResponse(), HttpStatus.NOT_FOUND);
